@@ -1,7 +1,62 @@
-.navbar {
-    background-color: #37323e
+.photoDiv {
+    height: 50vw;
 }
 
 body {
-    background-color:#6D6A75
+    background-image: gradient    
+}
+
+#headerImage {
+    opacity: 0.8;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    z-index: -10;
+}
+
+.headerText {
+    position: absolute;
+    right: 25%;
+    bottom: 40%;
+    color: lightblue; 
+    font-family: "Courier";
+    font-size: 7vw;
+    opacity: 1;
+  }
+
+.headerText:hover {
+    text-shadow: 0 0 0.01px black;
+}
+
+.headerTextTop {
+    
+}
+
+.navbar {
+    width: 100%
+}
+
+.footer {
+    height: 50px;
+}
+
+.opac {
+    opacity: 0.9;
+}
+
+.grow { 
+    transition: all .2s ease-in-out; 
+}
+     
+.grow:hover { 
+    transform: scale(1.1); 
+}
+
+.footLink {
+    color: lightblue; 
+    font-size: 2rem
+}
+
+.footLink:hover {
+    color: deeppink;
 }

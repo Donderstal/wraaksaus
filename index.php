@@ -6,12 +6,12 @@ $request = $_SERVER['REQUEST_URI'];
  */
 require __DIR__ . '/app/views/partials/head.phtml';
 
-switch ($request) {
+/* switch ($request) {
     case (strpos($_SERVER['REQUEST_URI'], 'documentatie/doc') == false) :
         require __DIR__ . '/app/views/partials/nav.phtml';
         break;
 }
-
+ */
 /* require __DIR__ . '/app/views/partials/cookieverklaring.phtml'; */
 
 /**

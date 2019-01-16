@@ -1,59 +1,11 @@
-<?php $viewTitles = [
-    "contact" => "Contact opnemen",
-    "documentatie" => "Documenten, Downloads",
-    "landing" => "Welkom",
-    "over" => "Over PMT groep",
-    "tool" => "Pensioenberekeningstool"
-];
-$descriptions = [
-    "contact" => "Contact opnemen met PMT Groep is zo gebeurd, hieronder vindt u ons telefoonnummer, e-mail en postadres.",
-    "documentatie" => "Extra informatie nodig omtrent de nieuwe pensioenregeling? Die vindt u hier.",
-    "landing" => "Nieuwsgierig naar wat de nieuwe wetgeving omtrent pensioenen kan betekenen voor u? PMT Groep Gouda staat u bij!",
-    "over" => "PMT Groep Gouda specialiseert zich in al uw vraagstukken omtrent uw toekomst. Lees hier over wat wij u kunnen bieden.",
-    "tool" => "Bereken in een paar eenvoudige stappen wat de nieuwe pensioenregeling voor uw toekomst kan betekenen."
-];
-?>
 <!doctype html>
     <head>
-        <?php switch ($request) {
-        case '/'    :
-            echo "<title> {$viewTitles['landing']}" . " | PMT Groep, Gouda </title>";
-            echo "<meta name=\"description\" content=\"{$descriptions['landing']}\" />";
-            break;
-        case '/home'    :
-            echo "<title> {$viewTitles['landing']}" . " | PMT Groep, Gouda </title>";
-            echo "<meta name=\"description\" content=\"{$descriptions['landing']}\" />";
-            break;
-        case '/documentatie' :
-            echo "<title> {$viewTitles['documentatie']}" . " | PMT Groep, Gouda </title>";
-            echo "<meta name=\"description\" content=\"{$descriptions['documentatie']}\" />";
-            break;
-        case '/contact'    :
-            echo "<title> {$viewTitles['contact']}" . " | PMT Groep, Gouda </title>";
-            echo "<meta name=\"description\" content=\"{$descriptions['contact']}\" />";
-            break;
-        case '/over-pmt'    :
-            echo "<title> {$viewTitles['over']}" . " | PMT Groep, Gouda </title>";
-            echo "<meta name=\"description\" content=\"{$descriptions['over']}\" />";
-            break;
-        case '/tool'    :
-            echo "<title>{$viewTitles['tool']}" . " | PMT Groep, Gouda </title>";
-            echo "<meta name=\"description\" content=\"{$descriptions['tool']}\" />";
-            break;
-        }?>
+        <title> W R A A K S A U S </title>
         <meta charset="utf-8">       
         <meta content='maximum-scale=1.0, initial-scale=1.0, width=device-width' name='viewport'>
         <link rel="stylesheet" href="../../library/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
         <link rel="stylesheet" href="../../public/css/styles.css">
-        <link rel="shortcut icon" type="image/x-icon" href="https://pmtgroep.nl/wp-content/uploads/2017/03/pmt-favicon.png">
     </head>
-<?php switch ($request) {
-    case '/dashboard'    :
-        echo '<body onload="getData()">';
-        break;
-    default:
-        echo '<body>';
-        break;
-    }
-?>
+    <?php require __DIR__ . '/nav.phtml'; ?>
+    <body onload="getSlideshow()">
