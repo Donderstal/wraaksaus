@@ -2,16 +2,33 @@
     height: 50vw;
 }
 
-body {
-    background-image: gradient    
+#row1div1 {
+    background-image: url('../../public/images/ws_1.jpg')
 }
 
-#headerImage {
+.clickHeaderDiv {
+    height: 10vw;
+    padding:auto;
+}
+
+.mainPageImage {
+    opacity: 0.8;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    z-index: -10; 
+}
+
+.headerImage {
     opacity: 0.8;
     position: relative;
     height: 100%;
     width: 100%;
     z-index: -10;
+}
+
+.newHeaderImage {
+    display: none;
 }
 
 .headerText {
@@ -29,7 +46,15 @@ body {
 }
 
 .headerTextTop {
-    
+    color: lightblue; 
+    font-family: "Courier";
+}
+
+.mainTextDivs {
+    background-color: lightblue; 
+    color: #343a40;
+    height: 25vh;
+    /* border: groove 0.5vh #D95D39; */
 }
 
 .navbar {
@@ -59,4 +84,8 @@ body {
 
 .footLink:hover {
     color: deeppink;
+}
+
+#navvvy {
+    display: block;
 }
