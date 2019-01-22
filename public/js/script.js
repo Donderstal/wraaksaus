@@ -17,6 +17,8 @@ function getSlideshow() {
         $('.fillerRow').remove()
     }
     else {
+        const headerImage = document.getElementById("headerImage")
+        headerImage.setAttribute("src", "../../public/images/ws_1.jpg")
         return interval = setInterval(genRandomImage, 2000)        
     }
 }
@@ -26,11 +28,10 @@ function genRandomImage() {
     const src = headerImage.getAttribute('src')
     let fileNum = ( parseFloat(src.split('_')[1].split('.')[0]) + 1 )
     fileNum = (fileNum == 13) ? 1 : fileNum
-    headerImage.setAttribute("src", "../../public/images/ws_" + fileNum + ".jpg")   
+    headerImage.setAttribute("src", "../../public/images/ws_" + fileNum + ".jpg")           
 }
 
 function handleClick(event) {
-    console.log(event.path)
     if (event.target.id === "headerText") {
         closeSlideshow()
     }
@@ -49,7 +50,6 @@ function handleClick(event) {
 
 function closeTab(eventPath){
     const ID = eventPath[2].id
-    console.log(ID)
     $('#'+ID+'>.bg-light').remove()
     if (ID.includes('div1')) {
         const otherID = ID.replace("div1", "div2");
@@ -63,18 +63,19 @@ function closeTab(eventPath){
 }
 
 function openTab(eventPath, eventTarget){
+    console.log($('.mainTextDivs'))
     let ID
     let className
     if (event.path[0].className === "grow2") {
         ID = eventPath[1].id
         className = eventPath[2].className
-        $(eventTarget).wrap( "<div class='bg-light col-6 p-4 m-4'></div>" );        
+        $(eventTarget).wrap( "<div class='bg-light col-md-6 col-10 p-4 m-4'></div>" );        
         $(eventTarget).remove()    
     }
     else { 
         ID = eventPath[0].id
         className = eventPath[1].className
-        $(eventTarget).wrap( "<div class='bg-light col-6 p-4 m-4'></div>" );      
+        $(eventTarget).wrap( "<div class='bg-light col-md-6 col-10 p-4 m-4'></div>" );      
     }
 
     $('#' + ID).attr( "class" , "wide p-5 mb-2" );
