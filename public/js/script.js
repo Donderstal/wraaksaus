@@ -9,6 +9,8 @@ textObject = {
     row2div2: "<h4 id='content4' class='grow2'>Appeltaart...</h4>"
 }
 
+let intViewportWidth = window.innerWidth;
+
 function getSlideshow() {
     var windowsize = $(window).width();
     if (windowsize < 1000) {
@@ -56,37 +58,43 @@ function handleClick(event) {
 }
 
 function closeTab(eventPath){
+    console.log('closing')
     const ID = eventPath[2].id
     $('#'+ID+'>.bg-light').remove()
     if (ID.includes('div1')) {
+        console.log('in if...')
         const otherID = ID.replace("div1", "div2");
-        $('#' + ID).attr( "class" , "col-md-4 offset-md-1 col-8 offset-2 mb-5 mt-5 p-3 mainTextDivs" );
-        $('#' + otherID).attr( "class" , "col-md-4 offset-md-2 col-8 offset-2 mb-5 mt-5 p-3 mainTextDivs" );             
+        $('#' + ID).attr( "class" , "col-lg-4 offset-lg-1 col-8 offset-2 mb-5 mt-5 p-3 mainTextDivs" );
+        if ($('#' + otherID).attr("class")) {
+            $('#' + otherID).attr( "class" , "col-lg-4 offset-lg-2 col-8 offset-2 mb-5 mt-5 p-3 mainTextDivs" );             
+        }     
     }
     else {
-        $('#' + ID).attr( "class" , "col-md-4 offset-md-2 col-8 offset-2 mb-5 mt-5 p-3 mainTextDivs" );      
+        console.log('in else...')
+        $('#' + ID).attr( "class" , "col-lg-4 offset-lg-2 col-8 offset-2 mb-5 mt-5 p-3 mainTextDivs" );      
     }
     $('#' + ID).append(textObject[ID])
 }
 
 function openTab(eventPath, eventTarget){
+    console.log(intViewportWidth)
     let ID
     if (event.path[0].className === "grow2") {
         ID = eventPath[1].id
-        $(eventTarget).wrap( "<div class='bg-light col-md-6 col-10 p-4 m-4'></div>" );        
+        $(eventTarget).wrap( "<div class='bg-light col-lg-6 col-10 p-4 m-4'></div>" );        
         $(eventTarget).remove()    
     }
     else { 
         ID = eventTarget.id
-        $(Array.from(eventTarget.children)[0]).wrap( "<div class='bg-light col-md-6 col-10 p-4 m-4'></div>" );
+        $(Array.from(eventTarget.children)[0]).wrap( "<div class='bg-light col-lg-6 col-10 p-4 m-4'></div>" );
     }
 
     $('#' + ID).attr( "class" , "wide p-5 mb-2" );
     assortContent(ID)
-    getBottomTabs(eventPath)
+    /* getBottomTabs(eventPath) */
 }
 
-function getBottomTabs (eventPath) {
+/* function getBottomTabs (eventPath) {
     let divArray = Array.from(document.getElementsByClassName('mainTextDivs'))
     divArray = sortDivArray(divArray, eventPath)
     console.log(divArray)
@@ -101,7 +109,7 @@ function sortDivArray(divArray, eventPath) {
         const ID = eventPath[0].id
         return divArray.filter( e => e.id != ID)
     }    
-}
+} */
 
 function assortContent(ID) {
     if ((ID.includes('row1div1'))) {
@@ -122,9 +130,9 @@ function assortContent(ID) {
 function addContent(ID, content) {
     $('div#'+ID+'>div.bg-light').html(content)
     const otherID = ID.replace("div1", "div2");
-    if (ID.includes('div1') && $('#'+otherID).attr('class').includes('offset-md-2')) {
-        $('#' + otherID).removeClass('offset-md-2')
-        $('#' + otherID).addClass('offset-md-7')
+    if (ID.includes('div1') && $('#'+otherID).attr('class').includes('offset-lg-2')) {
+        $('#' + otherID).removeClass('offset-lg-2')
+        $('#' + otherID).addClass('offset-lg-7')
     }
 }
 
